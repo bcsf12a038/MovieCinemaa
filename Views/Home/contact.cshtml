@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "contact";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div id="content">
+        <div class="line-hor"></div>
+        <div class="box">
+          <div class="border-right">
+            <div class="border-left">
+              <div class="inner">
+                <h3>@Html.Label("Contact") <span>@Html.Label("Details")</span></h3>
+                <div class="address">
+                  <div class="fleft"><span>@Html.Label("Zip Code:")</span>@Html.Label("54000")<br />
+                  <span>@Html.Label("Country:")</span>@Html.Label("PAKISTAN")<br />
+                  <span>@Html.Label("Telephone:")</span>@Html.Label("+9242-4206984")<br />
+                    
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content">
+          <h3>Contact <span>Form</span></h3>
+          <form id="contacts-form" method="post" action="/Home/Feedback">       
+              <div class="field">
+                <label>Your Name:</label>
+                <input type="text" name="Name" value=""/>
+              </div>
+              <div class="field">
+                <label>Your E-mail:</label>
+                <input type="text" name="Email" value=""/>
+              </div>
+              <div class="field">
+                <label>Phone :</label>
+                <input type="text" name="Phone" value=""/>
+              </div>
+              <div class="field">
+                <label>Subject :</label>
+                <input type="text" name="Subject" value=""/>
+              </div>
+              <div class="field">
+                <label>Your Message:</label>
+                <textarea cols="1" name="Message" rows="1"></textarea>
+              </div>
+             <input  type="submit" style="margin-left: 110px" class="btn btn-default" value="Send Message" />
+             
+          </form>
+        </div>
+      </div>

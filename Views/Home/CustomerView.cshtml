@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "CustomerView";
+    Layout="~/Views/Shared/Layout.cshtml";
+}
+
+<div class="row" style="margin-top:100px">
+
+
+    <div class="line-hor"></div>
+        <div class="box">
+          <div class="border-right">
+            <div class="border-left">
+                <center>
+                            
+              <div class="col-xs-8">
+                  <br />
+                            <br />
+                            
+                                 <h2 style="color:gray" > @Html.Label("Customer Info")</h2>
+                            
+                                <div>
+                                    <form action="~/Home/RegisterTickets" method="get">
+                                        <table style="color:gray">
+
+                                            <tr>
+                                                <td>Customer Name :</td>
+                                                <td><input type="text" name="name" class="form-control" /></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Customer Address :</td>
+                                                <td><input type="text" name="addr" class="form-control" /></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Customer Phone No. :</td>
+                                                <td><input type="text" name="phone" class="form-control" /></td>
+                        
+                                            </tr>
+                        
+                                            <tr>
+                                                <td></td>
+                                                <td><input type="submit" class="btn btn-default" value="Submit" name="btnsubmit" /></td>
+                                            </tr>
+                                        </table>
+                                        <input type="Hidden" value="@ViewBag.mid" name="mid" />
+                                    </form>
+                                </div>
+
+
+                            
+                        </div>
+                    </center>
+                    </div>
+              </div>
+            </div>
+          </div>
+        
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    

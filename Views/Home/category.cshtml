@@ -1,0 +1,235 @@
+﻿@model Project.Models.Movie
+@{
+    ViewBag.Title = "category";
+
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+
+<div class="row col" style="margin-left: 10px; margin-top: 50px; color:gray">
+
+    <div class="col-md-2">
+        
+        <div class="list-group" >
+            <h3 style="color:gray">Categories</h3> <br>
+             
+            <a href="#animated" class="link2"> <span> <span> Animated</span> </span> </a> 
+           <h5> <a href="#action" class="link2"> <span>   <span>Action</span> </span> </a></h5>
+            <a href="#adventure" class="link2"> <span><span>Adventure</span> </span> </a>
+            <h6><a href="#Comedy" class="link2"> <span>   <span>   Comedy</span> </span> </a></h6>
+            @*<form  action="/Home/SeachMovie" style="margin-left: 723px">
+               
+                    <input type="text" name="Name" placeholder="Search Movie" />
+                    <input type="submit" name="Search" value="Search" />
+                
+            </form>*@
+            
+        </div>
+    </div>
+    <form style="margin-left: 23px" name="myForm" class="navbar-form navbar-left pull-right" action="/Home/Search" method="post" role="search" onsubmit="return(validate());">
+                <div class="form-group">
+                    <input type="text" name="Name" class="form-control" placeholder="Search Movie" />
+                    <input type="submit" class="btn btn-default" id="btncheck" value="Search"/>
+                </div>
+    </form>
+    <script>
+        $(document).ready(function () {
+            {
+
+                $('#btncheck').on('click', function () {
+                    //$('#d3').hide();
+                    var name = $('#Name').val();
+                    
+                    $.getJSON('/Home/Search?user=' + name, function (d) {
+                      
+                    });
+                });
+            }
+        });
+</script>
+
+
+    <div class="col-md-10">
+        <hr />
+        <section id="animated" style="margin-top:100px">
+            <script>
+
+            </script>
+            <h3><strong> Animated Movies</strong></h3>
+            <ul>
+
+                @foreach (var i in ViewBag.Animated)
+                {
+                    <li>
+                        <h3><strong> @i.Title</strong></h3>
+                        
+                        <img src="~/Images/@i.FilePath" style="width:200px;height:250px" />
+                        <br />
+                        <a class="btn btn-default" href="~/Home/BuyTicket/@i.Id">Buy Ticket</a> 
+                        <p>
+                            <h4>Movie Description:</h4>
+                            @i.Description
+                        </p>
+                       
+                    </li>
+                }
+
+            </ul>
+        </section>
+        <hr />
+
+        <section id="action" style="margin-top:100px">
+          
+
+            <h3><strong> Action Movies</strong></h3>
+            <ul>
+
+                @foreach (var i in ViewBag.Action)
+                {
+                    <li>
+                        <h3><strong> @i.Title</strong></h3>
+                        <img src="~/Images/@i.FilePath" style="width:200px;height:250px" />
+                        <br />
+                        <a class="btn btn-default" href="~/Home/BuyTicket/@i.Id">Buy Ticket</a> 
+                        <p>
+                            <h4>Movie Description:</h4>
+                            @i.Description
+                        </p>
+                    </li>
+                }
+
+            </ul>
+        </section>
+        <hr />
+        <section id="adventure" style="margin-top:100px">
+            
+            <h3><strong> Adventure Movies</strong></h3>
+            <ul>
+                @foreach (var i in ViewBag.Adventure)
+                {
+                    <li>
+                        <h3><strong> @i.Title</strong></h3>
+                        <img src="~/Images/@i.FilePath" style="width:200px;height:250px" />
+                        <br/>
+                        <a class="btn btn-default" href="~/Home/BuyTicket/@i.Id">Buy Ticket</a> 
+                        <p>
+                            <h4>Movie Description:</h4>
+                            @i.Description
+                        </p>
+                    </li>
+                }
+
+         
+
+            </ul>
+        </section>
+        <hr />
+
+
+    </div>
+
+</div>
+
+
+@*
+
+    <div class="col-md-10">
+        <hr />
+        <section id="animated" style="margin-top:100px">
+            <script>
+
+            </script>
+            <h3><strong> Animated Movies</strong></h3>
+            <ul>
+                <li>
+                            <h3><strong> Toy Story</strong></h3>
+                        <img src="~/Images/Category/toy-story-3.jpg" style="width:200px;height:250px"/>
+                        <br />
+                    
+                    <a href=/Home/BuyTicket class="link2"> <span> <span>Buy Ticket</span> </span> </a>
+                    <br />
+                    <br />
+                        <p>
+                            <h4>Movie Description:</h4>
+                            Toy Story 3
+                        </p>
+
+                    </li>
+
+                    <li>
+                        <h3><strong> Rio 2</strong></h3>
+                        <img src="~/Images/Category/rio-2.jpg" style="width:200px;height:250px"/>
+
+                        <p>
+                            <h4>Movie Description:</h4>
+                                Rio Movie
+                        </p>
+
+                    </li>
+            </ul>
+        </section>
+        <hr />
+
+        <section id="action" style="margin-top:100px">
+          
+
+            <h3><strong> Action Movies</strong></h3>
+            <ul>
+                
+                <li>
+                        <h3><strong> Train Your Dragon</strong></h3>
+                        <img src="~/Images/Category/Dragon_Train.jpg" style="width:200px;height:250px"/>
+                        <p>
+                            <h4>Movie Description:</h4>
+                                Action Movie
+                            </p>
+
+                    </li>
+
+                    <li>
+                        <h3><strong>Iron Man</strong></h3>
+                        <img src="~/Images/Category/ironMan3-1.jpeg" style="width:200px;height:250px"/>
+                        <p>
+                            <h4>Movie Description:</h4>
+                            IronMan 3   
+                        </p>
+
+                    </li>
+
+            </ul>
+        </section>
+        <hr />
+        <section id="adventure" style="margin-top:100px">
+            
+            <h3><strong> Adventure Movies</strong></h3>
+            <ul>
+                <li>
+                        <h3><strong> Zathura: A Space Adventure</strong></h3>
+                        <img src="~/Images/Category/zathura-a-space-adventure-2005-movie-poster.jpg" />
+                        <p>
+                           <h4>Movie Description:</h4>
+                            Zathura   
+                        </p>
+
+                    </li>
+
+                    <li>
+                        <h3><strong>The Hobbit: The Battle of the Five Armies</strong></h3>
+                        <img src="~/Images/Category/the-hobbit-the-battle-of-the-five-armies.jpg" />
+
+                        <p>
+                            <h4>Movie Description:</h4>
+                             Another good one from Hobbit Series 
+                        </p>
+
+                    </li>
+
+            </ul>
+        </section>
+        <hr />
+
+
+    </div>
+
+</div>*@

@@ -1,0 +1,114 @@
+﻿@{
+    ViewBag.Title = "AddMovie";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="centered" style="margin-left:10px;margin-top:70px;width:50%">
+
+    @*<div class="form-horizontal" style="text-align:center">
+            @using (Html.BeginForm("NewMovie", "AdminPanel", FormMethod.Post))
+            {
+                <table>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(m => m.Name)
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(m => m.Name, new { id = "Name" })
+                            @Html.ValidationMessageFor(m => m.Name)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            @Html.LabelFor(m => m.Description)
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(m => m.Description, new { id = "Description" })
+                            @Html.ValidationMessageFor(m => m.Description)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            @Html.LabelFor(m => m.Category)
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(m => m.Category, new { id = "Category" })
+                            @Html.ValidationMessageFor(m => m.Category)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            @Html.LabelFor(m => m.PicAddress)
+                        </td>
+                        <td>
+                            <input type="file" class="form-control" name="file" placeholder="Image">
+                            @Html.ValidationMessageFor(m => m.Category)
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <input type="submit" class="btn btn-default" value="Submit" />
+                        </td>
+                    </tr>
+
+
+                </table>
+            }
+
+        </div>*@
+
+
+    <form class="form-horizontal" action="~/AdminPanel/NewMovie" method="post" enctype="multipart/form-data">
+        <fieldset>
+            <legend>Add Movie</legend>
+            <div class="form-group">
+                <label for="inputTitle" class="col-lg-2 control-label">Title</label>
+                <div class="col-lg-8">
+                    <input type="text" class="form-control" name="title" placeholder="Movie Title">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputDescription" class="col-lg-2 control-label">Description</label>
+                <div class="col-lg-8">
+                    <input type="text" class="form-control" name="desc" placeholder="Description">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="select" class="col-lg-2 control-label">Selects</label>
+                <div class="col-lg-10">
+                    <select class="form-control" name="cate">
+                        <option>Animated</option>
+                        <option>Action</option>
+                        <option>Comedy</option>
+                        <option>Adventure</option>
+                    </select>
+                    <br>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="inputFile" class="col-lg-2 control-label">Picture</label>
+                <div class="col-lg-8">
+                    <input type="file" class="form-control" name="file" placeholder="Image">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                    <button type="reset" class="btn btn-default">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>

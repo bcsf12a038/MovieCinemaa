@@ -1,0 +1,78 @@
+﻿@model Project.Models.User
+
+@{
+    ViewBag.Title = "ModifyAdmins";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script>
+    $(document).ready(function () {
+        {
+
+            $('#btncheck').on('click', function () {
+                //$('#d3').hide();
+                var name = $('#Name').val();
+                $('#labl1').empty();
+
+                $.getJSON('/AdminPanel/CheckAdmin?user=' + name, function (d) {
+                    if (d == true) {
+                        
+                        $('#labl1').append("<p id = \"p1\" style = \"color:red\">User Already Exists</p>");
+
+                    }
+                    else {
+                        
+                        $('#labl1').append("<p id = \"p1\" style = \"color:green\">User Available</p>");
+                        
+                    }
+                });
+            });
+        }
+    });
+</script>
+
+
+<div class="centered" style="margin-left:10px;margin-top:70px;width:50%">
+
+    <form class="form-horizontal" action="~/AdminPanel/NewAdmin" method="post">
+   
+        <fieldset>
+            <legend>Add Admin</legend>
+            <div class="form-group">
+                @*<label for="inputUserName" class="col-lg-2 control-label">User Name</label>*@
+                @Html.LabelFor(m => m.Name, new { @class = "col-lg-2 control-label" })
+                <div class="col-lg-8">
+                    @Html.TextBoxFor(m => m.Name, new { id = "Name", @class = "form-control", })
+                    @*<input type="text" class="form-control" name="user" placeholder="User Name">*@
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                <div class="col-lg-2"></div>
+
+                <div class="col-lg-10">
+                    <input type="button" value="Check" class="btn btn-primary" id="btncheck" />
+                    <label id="labl1"></label>
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                @*<label for="inputPassword" class="col-lg-2 control-label">Password</label>*@
+                @Html.LabelFor(m => m.Password, new { @class = "col-lg-2 control-label" })
+                <div class="col-lg-8">
+                    @*<input type="text" class="form-control" name="pass" placeholder="Password">*@
+                    @Html.PasswordFor(m => m.Password, new { id = "Password", @class = "form-control" })
+
+                </div>
+            </div>
+
+            <div id="d3" class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                    <button type="reset" class="btn btn-default">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </fieldset>
+    
+    </form>
+</div>

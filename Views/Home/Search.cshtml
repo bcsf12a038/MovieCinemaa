@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Search";
+    Layout="~/Views/Shared/Layout.cshtml";
+}
+
+<div class="row" style="margin-top:100px">
+
+    <div class="col-xs-8">
+        <h2 style="color:white">Movie Search</h2>
+        <br />
+        <br />
+        <center style="color:gray">
+            <div>
+                <ul>
+                
+                <li><h3><strong> @ViewBag.Movie.Title</strong></h3></li>
+                <li><img src="~/Images/@ViewBag.Movie.FilePath" style="width:200px;height:250px" /></li>
+                <br/>
+                <li><a href="~/Home/BuyTicket/@ViewBag.Movie.Id" class="btn btn-default"> <span> <span>Buy Ticket</span> </span> </a></li>
+                
+                <p>
+                   <h4>Movie Description:</h4></p>
+                    @ViewBag.Movie.Description
+                
+                    </ul>
+            </div>
+        </center>
+        
+    </div>
+</div>
